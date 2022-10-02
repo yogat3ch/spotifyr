@@ -44,7 +44,7 @@ get_playlist <- function(playlist_id, fields = NULL,
     total_tracks <- pluck(init_query, "tracks", "total")
     n_pages <- total_tracks %/% 100
 
-    if (!is.null(fields) && total_tracks > 100 && n_pages > 0) {
+    if (!total_tracks > 100) {
         return(init_query)
     } else {
 
